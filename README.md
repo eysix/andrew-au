@@ -8,7 +8,8 @@ Andrew Au's portfolio site, laid out after tianhuiyang.me: a seal logo and a sho
 - `projects.html`: side projects.
 - `about.html`: a short letter.
 
-Plain HTML and CSS, with no JavaScript and no build step.
+Plain HTML and CSS with no build step. The only JavaScript is `theme.js`, which powers the
+light/dark toggle (it follows the system setting until a visitor picks one).
 
 ## Run locally
 

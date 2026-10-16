@@ -12,6 +12,31 @@
   color-scheme: dark;
 }
 
+/* Light mode: rice-paper background with navy ink */
+:root[data-theme="light"] {
+  --bg: #f7f4ec;
+  --text: #0b1533;
+  --muted: #4b5677;
+  --purple: #6a4fd6;
+  --sky: #1b6fb0;
+  --vermilion: #c81e34;
+  --blossom: #d4487c;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f7f4ec;
+    --text: #0b1533;
+    --muted: #4b5677;
+    --purple: #6a4fd6;
+    --sky: #1b6fb0;
+    --vermilion: #c81e34;
+    --blossom: #d4487c;
+    color-scheme: light;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -92,6 +117,7 @@ a:hover {
 
 .site-nav {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 4px 22px;
@@ -107,6 +133,40 @@ a:hover {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   color: var(--sky);
+}
+
+/* Light/dark toggle at the end of the menu */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--sky);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Show the moon in light mode and the sun in dark mode */
+.theme-toggle .sun { display: block; }
+.theme-toggle .moon { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .moon { display: block; }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .theme-toggle .sun { display: none; }
+  :root:not([data-theme="dark"]) .theme-toggle .moon { display: block; }
 }
 
 /* Sections: small spaced-out label, lowercase line under it */
@@ -300,9 +360,13 @@ details li::before {
   .site-head {
     margin-bottom: 52px;
   }
+  .site-head {
+    gap: 12px;
+  }
   .site-nav {
-    gap: 4px 16px;
+    gap: 4px 12px;
     font-size: 14px;
+    letter-spacing: 0.02em;
   }
   .entry h3 {
     font-size: 16px;
