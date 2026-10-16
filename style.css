@@ -1,0 +1,164 @@
+:root {
+  --bg: #0b1533;          /* royal navy */
+  --text: #e8ecf8;
+  --muted: #a3aed0;
+  --purple: #b9a3ff;
+  --sky: #8fd3ff;
+  --vermilion: #d7263d;   /* seal red */
+  --blossom: #f6a5c0;     /* plum blossom pink */
+
+  --font: "Plus Jakarta Sans", "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-zh: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 18px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.letter {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 120px 24px 96px;
+}
+
+p {
+  margin: 0 0 1.25em;
+  color: var(--muted);
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--purple);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+a:hover {
+  color: var(--sky);
+  text-decoration-color: var(--sky);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Opening */
+.greeting {
+  margin: 0;
+  color: var(--sky);
+  font-weight: 500;
+}
+
+.zh {
+  font-family: var(--font-zh);
+  color: var(--blossom);
+}
+
+h1 {
+  margin: 0 0 1.4em;
+  font-size: clamp(2.2rem, 7vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Project list */
+.projects {
+  list-style: none;
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+
+.projects li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 0.6em;
+  color: var(--muted);
+}
+
+/* Small plum-blossom bullet */
+.projects li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blossom);
+  box-shadow: 0 0 0 3px rgba(246, 165, 192, 0.18);
+}
+
+.projects a {
+  font-weight: 600;
+}
+
+.projects span::before {
+  content: " — ";
+}
+
+/* Sign-off */
+.signoff {
+  margin-top: 2.5em;
+}
+
+.signoff p {
+  margin-bottom: 0.4em;
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.seal {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: var(--vermilion);
+  color: #fff4ef;
+  font-family: var(--font-zh);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  transform: rotate(-5deg);
+  box-shadow: inset 0 0 0 2px rgba(255, 244, 239, 0.35);
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 17px;
+  }
+  .letter {
+    padding-top: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none;
+  }
+}
