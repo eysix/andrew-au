@@ -22,5 +22,9 @@ Open `index.html` in a browser, or use the VS Code Live Server extension.
 
 ## Deploy
 
-Hosted on GitHub Pages: Settings → Pages → Deploy from a branch → `main`, `/ (root)`.
-Custom domain `andrewau.is-a.dev` is set in `CNAME`. Every push to `main` redeploys the site.
+Hosted on GitHub Pages at https://eysix.github.io/andrew-au/ (Settings → Pages → Deploy
+from a branch → `main`, `/ (root)`). Every push to `main` redeploys the site. All links are
+relative, so the site works under the `/andrew-au/` path as-is.
+
+No custom domain yet. When one is ready, add a `CNAME` file with the domain and set the same
+domain under Settings → Pages → Custom domain.
